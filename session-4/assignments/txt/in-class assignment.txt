@@ -1,6 +1,6 @@
 
 Inventory app-
-1. change function based views to generic class based views for list and detail
+*1. change function based views to generic class based views for list and detail
 
 2. implement create a new product using a) function based view and then b) generic CreateView
 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CATALOG DETAIL </title>
+  </head>
+  <body>
+    <h1>{{object.name}}</h1>
+        <ul>
+          <li>{{object.description}}</li>
+          <li>{{object.price}}</li>
+          <li>{{object.category}}</li>
+          <li>{{object.photo}}</li>
+        </ul>
+      <h3>Go back to <a href="{% url 'productapp:catalog' %}">Catalog</a></h3>
+  </body>
+</html>
