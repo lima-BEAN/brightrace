@@ -1,0 +1,16 @@
+
+Inventory app-
+1. change function based views to generi class based views for list and detail
+
+2. implement create a new product using a) function bsed view and then b) generic CreateView
+
+3. Implement Delete product using generic view
+ 
+4. Add Categories and Foreign key relation with product
+
+My git account - 
+kanchan.patil@summitworks.com
+kanchan-pat
+
+
+

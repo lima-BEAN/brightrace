@@ -1,0 +1,17 @@
+*1. Create virtual environment
+*2. Install django
+*3. Create a project : inventory_app
+*4. Check settings.py, make sure you installed sqlite3 or any database
+*5. Run web server. Make sure you get the basic django website
+*6. Create an application: productapp
+*7. Create a model: product [ its a class ]
+*8. Make migrations
+*9. Migrate
+*10. Check the db, all tables are created or not
+*11. Create superuser
+*12. Register the model to admin. Hint- open admin.py
+*13. Aceess admin page from web browser 
+*14. Add a products here, make sure its inserted in db table
+*15. Delete, update a product to make sure admin is working good
+*16. Check the database for all these actions.
+17. Also manage empty url, that will load a template for testing.

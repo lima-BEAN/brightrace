@@ -1,0 +1,9 @@
+Create a project using django framework - 
+
+*1. Install virtual environment
+*2. Create virtual environment
+*3. Install django
+*4. Create a project : TestProject
+*5. Check the folder structure 
+*6. Check settings.py, make sure you have installed sqlite or any database
+*7. Run web server to make sure verything good so far

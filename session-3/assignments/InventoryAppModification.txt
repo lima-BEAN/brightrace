@@ -1,0 +1,8 @@
+*1. Use project : inventory_app
+*2. Modify a model: product [ its a class ]. Add Image field for Product
+*3. Create URL, view and template to view the list of all products and specific product detail.
+*4. Handle media and static data associated with web application.
+*5. Create Database in MySQL for project inventory_app
+*6. Make migrations from SQLite to MySQL db.
+*7. Check the db, all tables are created or not
+*8. Check the database for all these actions.
