@@ -1,0 +1,28 @@
+[inventory management update ]:
+1)
+  Add views to the project which you started already.
+  Create required models and tables.
+  Create super user.
+  Register model with admin.
+  Also configure url.py file, change settings.py if required, add apps to settings.py, also add database.
+  Try to test the result by starting server.
+  Write a querysets to retrieve the data from database , also add filter if required.
+
+2) VIEWS - all kind function based, Class based and Generic Class based
+  Create a view to view all products.
+  Create a view to get details of one product
+  Create a view with a form to read(CREATE and UPDATE) a product from the user
+  Create a view to delete a product
+
+
+3)Reverse Mapping URLS
+  Update forms.py for generating forms.
+  Provide links in all templates to navigate from one template to other other template with view names and primary keys.
+
+4)Templates
+  Create proper template to handle the presentation layer so as to load all views output in respective template, add proper reg expressions in urls.py
+
+5)
+Create a template for login and logoff.
+Create a base template.
+Create child templates by extending base template.
