@@ -9,12 +9,12 @@ from customerapp.views import IndexView, CustomerListView, CustomerDetailView, C
 app_name = 'customerapp'
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
-    path('list/', CustomerListView.as_view(), name='customers'),
-    path('list/<pk>', CustomerDetailView.as_view(), name='customer-detail'),
+    # path('', IndexView.as_view(), name='index'),
+    path('', CustomerListView.as_view(), name='customers'),
     path('new-customer', CustomerCreateView.as_view(), name='new-customer'),
-    path('list/<pk>/customer-update', CustomerUpdateView.as_view(), name='customer-update'),
-    path('list/<pk>/customer-delete', CustomerDeleteView.as_view(), name='customer-delete'),
+    path('<pk>', CustomerDetailView.as_view(), name='customer-detail'),
+    path('<pk>/customer-update', CustomerUpdateView.as_view(), name='customer-update'),
+    path('<pk>/customer-delete', CustomerDeleteView.as_view(), name='customer-delete'),
 
     path('login/', auth_views.LoginView.as_view(template_name="registration/login.html"), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name="registration/logout.html"), name='logout'),

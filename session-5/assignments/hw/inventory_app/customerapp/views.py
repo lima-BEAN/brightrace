@@ -21,9 +21,9 @@ class IndexView(View):
 
 class CustomerCreateView(CreateView):
     model = Customer
-    fields = ['email', 'password', 'github']
-    template_name = 'customerapp/new_member.html'
-    success_url = reverse_lazy('customerapp:cusomters')
+    fields = ['username', 'email', 'password', 'github']
+    template_name = 'customerapp/new_customer.html'
+    success_url = reverse_lazy('customerapp:customers')
 
 
 class LoginView(View):
@@ -41,22 +41,25 @@ class CustomerDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['customers'] = Customer.objects.all()
-        return
+        # context['customers'] = Customer.objects.all()
+        context['customer_list'] = Customer.objects.all()
+
+        return context
 
 
 class CustomerUpdateView(UpdateView):
     model = Customer
-    fields = ['email', 'password', 'github']
-    template_name = 'customerapp/new_member.html'
+    fields = ['username', 'email', 'password', 'github']
+    template_name = 'customerapp/customer_update.html'
     success_url = reverse_lazy('customerapp:customers')
     template_name_suffix = '_update_form'
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
-        context['customers'] = Customer.objects.all()
+        # context['customers'] = Customer.objects.all()
+        context['customer_list'] = Customer.objects.all()
+
         return context
 
 class CustomerDeleteView(DeleteView):

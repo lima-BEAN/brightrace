@@ -4,4 +4,8 @@
     <h1>Welcome Home...</h1>
     <a href="{% url 'productapp:catalog' %}"><h5>Product Catalog</h5></a>
     <a href="{% url 'productapp:create-product' %}"><h5>Add Product</h5></a>
+    <br>
+    <a href="{% url 'customerapp:customers' %}">Customer List</a>
+    <a href="{% url 'customerapp:new-customer' %}"><h5>Add Customer</h5></a>
+
   {% endblock %}
