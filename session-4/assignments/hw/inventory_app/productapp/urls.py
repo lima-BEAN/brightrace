@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from . import views
-from productapp.views import IndexView, ProductListView, ProductDetailView, ProductCreateView
+from productapp.views import IndexView, ProductListView, ProductDetailView, ProductCreateView, ProductUpdateView, ProductDeleteView
 
 
 app_name = 'productapp'
@@ -21,5 +21,7 @@ urlpatterns = [
     path('catalog/', ProductListView.as_view(), name='catalog'),
     path('catalog/<pk>', ProductDetailView.as_view(), name='catalog-detail'),
     path('create-product', ProductCreateView.as_view(), name='create-product'),
+    path('catalog/<pk>/product-update', ProductUpdateView.as_view(), name='product-update'),
+    path('catalog/<pk>/product-delete', ProductDeleteView.as_view(), name='product-delete'),
 
 ]

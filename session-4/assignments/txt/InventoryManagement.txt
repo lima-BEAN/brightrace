@@ -20,7 +20,7 @@
 *  Provide links in all templates to navigate from one template to other other template with view names and primary keys.
 
 4)Templates
-  Create proper template to handle the presentation layer so as to load all views output in respective template, add proper reg expressions in urls.py
+*  Create proper template to handle the presentation layer so as to load all views output in respective template, add proper reg expressions in urls.py
 
 5)
 Create a template for login and logoff.

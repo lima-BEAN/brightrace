@@ -2,18 +2,17 @@ from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import View
+
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from productapp.models import Product
 
 from .forms import ProductForm
 
-from django.views.generic.edit import CreateView
-
-from django.urls import reverse_lazy
 
 
 
@@ -83,3 +82,23 @@ class ProductCreateView(CreateView):
     # def form_valid(self, form): #MRO
     #     # form.instance.user = self.request.user # logged in user
     #     return super(ProductCreate, self).form_valid(form)
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ['name', 'description', 'price', 'category', 'photo']
+    template_name = 'productapp/product_update.html'
+    success_url = reverse_lazy('productapp:catalog')
+    template_name_suffix = '_update_form'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['product_list'] = Product.objects.all()
+        return context
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('productapp:catalog')

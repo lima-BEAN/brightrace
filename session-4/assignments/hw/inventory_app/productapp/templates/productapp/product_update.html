@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create a Product</title>
+  </head>
+  <body>
+<!-- TODO: ADD FORM WITH CSRF -->
+
+  <form method="POST" action="{% url 'productapp:product-update' object.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" value="Update">Update</button>
+    <a href="{% url 'productapp:catalog' %}" > Cancel </a>
+  </form>
+
+  </body>
+</html>
