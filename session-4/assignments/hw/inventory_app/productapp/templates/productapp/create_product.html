@@ -7,9 +7,9 @@
     <title>Create a Product</title>
   </head>
   <body>
-<!-- TODO: ADD FORM WITH CSRF -->
 
-  <form method="POST" action="{% url 'productapp:create-product' %}">
+<!-- ENCYTPE IS WHAT WAS MISSING -->
+  <form method="POST" action="{% url 'productapp:create-product' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" value="Submit">Submit</button>

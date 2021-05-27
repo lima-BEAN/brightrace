@@ -13,6 +13,7 @@ from .forms import ProductForm
 
 from django.views.generic.edit import CreateView
 
+from django.urls import reverse_lazy
 
 
 
@@ -52,7 +53,8 @@ from django.views.generic.edit import CreateView
 # Base Class View
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse('Welcome Home to Class Views!')
+        # return HttpResponse('Welcome Home to Class Views!')
+        return render(request, 'productapp/index.html')
 
 
 # Generic Class View
@@ -74,3 +76,10 @@ class ProductDetailView(DetailView):
 class ProductCreateView(CreateView):
     model = Product
     fields = ['name', 'description', 'price', 'category', 'photo']
+    template_name = 'productapp/create_product.html'
+    success_url = reverse_lazy('productapp:catalog')
+    # login_url = 'login'# appname:viewname accounts/login
+
+    # def form_valid(self, form): #MRO
+    #     # form.instance.user = self.request.user # logged in user
+    #     return super(ProductCreate, self).form_valid(form)
