@@ -13,7 +13,7 @@ from productapp.models import Product
 
 from .forms import ProductForm
 
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # FUNCTION BASED VIEWS
@@ -102,3 +102,12 @@ class ProductUpdateView(UpdateView):
 class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('productapp:catalog')
+
+
+class LoginView(LoginRequiredMixin, View):
+    login_url = '/login/'
+    redirect_field_name = 'catalog'
+
+class LogoutView(View):
+    # logout_url = '/logout/'
+    redirect_field_name = 'catalog'

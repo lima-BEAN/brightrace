@@ -23,6 +23,6 @@
 *  Create proper template to handle the presentation layer so as to load all views output in respective template, add proper reg expressions in urls.py
 
 5)
-Create a template for login and logoff.
-Create a base template.
-Create child templates by extending base template.
+*Create a template for login and logoff.
+*Create a base template.
+*Create child templates by extending base template.

@@ -3,7 +3,7 @@ from django.urls import path, include
 
 from . import views
 from productapp.views import IndexView, ProductListView, ProductDetailView, ProductCreateView, ProductUpdateView, ProductDeleteView
-
+from django.contrib.auth import views as auth_views
 
 app_name = 'productapp'
 
@@ -24,4 +24,6 @@ urlpatterns = [
     path('catalog/<pk>/product-update', ProductUpdateView.as_view(), name='product-update'),
     path('catalog/<pk>/product-delete', ProductDeleteView.as_view(), name='product-delete'),
 
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name="registration/logout.html"), name='logout'),
 ]
