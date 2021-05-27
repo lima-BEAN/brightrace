@@ -16,6 +16,10 @@ from .forms import ProductForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+from .forms import CustomUserCreationForm
+from django.contrib import messages
+
+
 # FUNCTION BASED VIEWS
 # (UPDATING TO) generic class based views
 # def index(request):
@@ -103,7 +107,6 @@ class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('productapp:catalog')
 
-
 class LoginView(LoginRequiredMixin, View):
     login_url = '/login/'
     redirect_field_name = 'catalog'
@@ -111,3 +114,18 @@ class LoginView(LoginRequiredMixin, View):
 class LogoutView(View):
     # logout_url = '/logout/'
     redirect_field_name = 'catalog'
+
+
+
+def register(request):
+    if request.method == 'POST':
+        f = CustomUserCreationForm(request.POST)
+        if f.is_valid():
+            f.save()
+            messages.success(request, 'Account created successfully')
+            return HttpResponseRedirect(reverse_lazy('productapp:login'))
+        else:
+            return HttpResponse('Form not valid')
+    else:
+        f = CustomUserCreationForm()
+    return render(request, 'registration/register.html', {'form': f})
