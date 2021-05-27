@@ -111,8 +111,8 @@ class LoginView(LoginRequiredMixin, View):
     login_url = '/login/'
     redirect_field_name = 'catalog'
 
-class LogoutView(View):
-    # logout_url = '/logout/'
+class LogoutView(LoginRequiredMixin, View):
+    login_url = '/login/'
     redirect_field_name = 'catalog'
 
 
