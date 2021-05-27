@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <title>{% block title %}Product App{% endblock title %}</title>
+</head>
+<body>
+
+
+    <div id="sidebar">
+        {% block sidebar %}<ul><li><a href="{% url 'productapp:index' %}">Home</a></li>
+          <li> <a href="{% url 'productapp:login' %}">Login</a> </li>
+          <li> <a href="{% url 'productapp:logout' %}">Logout</a> </li>
+
+        </ul>{% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% endblock %}
+    </div>
+    <div id="footer">
+        {% block footer %}This website is powered by Django*{% endblock %}
+    </div>
+</body>
+</html>

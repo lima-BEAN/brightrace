@@ -1,0 +1,21 @@
+
+
+Inventory app-
+*1. change function based views to generic class based views for list and detail
+
+2. implement create a new product using a) function based view and then b) generic CreateView add a user field to products 
+
+*3. Implement Delete product using generic view
+ 
+4. Add Categories and Foreign key relation with product 
+
+5. For listing - list categories and then based on category, list products 
+
+6. Implement login ancd .d logout functionality to project
+
+My git account - 
+kanchan.patil@summitworks.com
+kanchan-pat
+
+
+

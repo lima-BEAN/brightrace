@@ -1,0 +1,7 @@
+{% extends 'base.html'  %}
+
+{%  block content %}
+    <h1>Welcome Home...</h1>
+    <a href="{% url 'productapp:catalog' %}"><h5>Product Catalog</h5></a>
+    <a href="{% url 'productapp:create-product' %}"><h5>Add Product</h5></a>
+  {% endblock %}
