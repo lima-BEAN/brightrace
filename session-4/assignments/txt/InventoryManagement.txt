@@ -11,8 +11,8 @@
 2) VIEWS - all kind function based, Class based and Generic Class based
 *  Create a view to view all products.
 *  Create a view to get details of one product
-  Create a view with a form to read(CREATE and UPDATE) a product from the user
-  Create a view to delete a product
+*  Create a view with a form to read(CREATE and UPDATE) a product from the user
+*  Create a view to delete a product
 
 
 3)Reverse Mapping URLS

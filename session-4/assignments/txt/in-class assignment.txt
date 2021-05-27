@@ -4,7 +4,7 @@ Inventory app-
 
 *2. implement create a new product using a) function based view and then b) generic CreateView
 
-3. Implement Delete product using generic view
+*3. Implement Delete product using generic view
 
 4. Add Categories and Foreign key relation with product
 

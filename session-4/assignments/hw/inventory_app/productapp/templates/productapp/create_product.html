@@ -1,13 +1,9 @@
+<!-- CURRENTLY LOADING THIS HTML FOR CREATE PRODUCT PAGE -->
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Create a Product</title>
-  </head>
-  <body>
 
+{% block content %}
 <!-- ENCYTPE IS WHAT WAS MISSING -->
   <form method="POST" action="{% url 'productapp:create-product' %}" enctype="multipart/form-data">
     {% csrf_token %}
@@ -16,5 +12,4 @@
     <a href="{% url 'productapp:catalog' %}" > Cancel </a>
   </form>
 
-  </body>
-</html>
+{% endblock %}

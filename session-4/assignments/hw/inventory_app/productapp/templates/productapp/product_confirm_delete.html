@@ -1,19 +1,12 @@
+<!-- CURRENTLY LOADING THIS HTML FOR DELETE PRODUCT PAGE -->
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Create a Product</title>
-  </head>
-  <body>
-<!-- TODO: ADD FORM WITH CSRF -->
-
+{% block content %}
   <form method="POST">
     {% csrf_token %}
     <p>Are you sure you want to delete: <br> "{{object}}"</p>
     <button type="submit" value="Confirm">Confirm</button>
   </form>
   <a href="{% url 'productapp:catalog' %}" > <h3>Cancel</h3></a>
-  </body>
-</html>
+{% endblock %}
