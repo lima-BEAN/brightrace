@@ -1,4 +1,5 @@
 from django.db import models
+from customerapp.models import Customer
 
 
 # class Category(models.Model):
@@ -33,7 +34,7 @@ class Product(models.Model):
         (OUTDOORS, 'Outdoors'),
         (TECH, 'Tech'),
     ]
-
+    # customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
     price =  models.FloatField()

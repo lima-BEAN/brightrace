@@ -8,8 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from customerapp.models import Customer
 
-# from .forms import CustomerForm
-
+from .forms import NewCustomerForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.contrib import messages
@@ -20,8 +19,8 @@ class IndexView(View):
 
 
 class CustomerCreateView(CreateView):
-    model = Customer
-    fields = ['username', 'email', 'password', 'github']
+    # model = Customer
+    # fields = ['username', 'email', 'password', 'github']
     template_name = 'customerapp/new_customer.html'
     success_url = reverse_lazy('customerapp:customers')
 
@@ -77,9 +76,9 @@ class LoginView(LoginRequiredMixin, View):
 #     redirect_field_name = 'catalog'
 
 
-def new_member(request):
+def new_customer(request):
     if request.method == 'POST':
-        f = NewMemberForm(request.POST)
+        f = NewCustomerForm(request.POST)
         if f.is_valid():
             f.save()
             messages.success(request, 'Account created successfully')
@@ -87,5 +86,5 @@ def new_member(request):
         else:
             return HttpResponse('Form not valid')
     else:
-        f = NewMemberForm()
-    return render(request, 'registration/new_member.html', {'form': f})
+        f = NewCustomerForm()
+    return render(request, 'registration/new_customer.html', {'form': f})

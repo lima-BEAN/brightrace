@@ -11,7 +11,7 @@ app_name = 'customerapp'
 urlpatterns = [
     # path('', IndexView.as_view(), name='index'),
     path('', CustomerListView.as_view(), name='customers'),
-    path('new-customer', CustomerCreateView.as_view(), name='new-customer'),
+    # path('new-customer', CustomerCreateView.as_view(), name='new-customer'),
     path('<pk>', CustomerDetailView.as_view(), name='customer-detail'),
     path('<pk>/customer-update', CustomerUpdateView.as_view(), name='customer-update'),
     path('<pk>/customer-delete', CustomerDeleteView.as_view(), name='customer-delete'),
@@ -23,4 +23,8 @@ urlpatterns = [
 
     # re_path(r'^register/$', views.register, name='register'),
     # re_path(r'^register/$', views.register, name='register')
+
+    re_path(r'^new-customer/$', views.new_customer, name='new-customer'),
+
+
 ]
