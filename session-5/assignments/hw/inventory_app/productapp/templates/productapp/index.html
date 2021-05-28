@@ -3,9 +3,13 @@
 {%  block content %}
     <h1>Welcome Home...</h1>
     <a href="{% url 'productapp:catalog' %}"><h5>Product Catalog</h5></a>
-    <a href="{% url 'productapp:create-product' %}"><h5>Add Product</h5></a>
-    <br>
-    <a href="{% url 'customerapp:customers' %}">Customer List</a>
-    <a href="{% url 'customerapp:new-customer' %}"><h5>Add Customer</h5></a>
+    <a href="{% url 'productapp:create-product' %}">Add Product</a>
+    <br><br>
+    <a href="{% url 'customerapp:customers' %}"><h5>Customer List</h5></a>
+    <a href="{% url 'customerapp:new-customer' %}">Add Customer</a>
+    <br><br>
+    <a href="{% url 'productapp:category' %}"><h5>Category List</h5></a>
+    <a href="{% url 'productapp:new-category' %}">Add Category</a>
+
 
   {% endblock %}

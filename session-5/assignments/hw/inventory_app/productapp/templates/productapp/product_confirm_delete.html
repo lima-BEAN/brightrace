@@ -1,12 +1,6 @@
 <!-- CURRENTLY LOADING THIS HTML FOR DELETE PRODUCT PAGE -->
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base_confirm_delete.html' %}
 
-{% block content %}
-  <form method="POST">
-    {% csrf_token %}
-    <p>Are you sure you want to delete: <br> "{{object}}"</p>
-    <button type="submit" value="Confirm">Confirm</button>
-  </form>
-  <a href="{% url 'productapp:catalog' %}" > <h3>Cancel</h3></a>
+{% block a-url %}
+<a href="{% url 'productapp:catalog' %}" > <h3>Cancel</h3></a>
 {% endblock %}

@@ -13,7 +13,10 @@
         {% block sidebar %}<ul><li><a href="{% url 'productapp:index' %}">Home</a></li>
           <li> <a href="{% url 'productapp:login' %}">Login</a> </li>
           <li> <a href="{% url 'productapp:logout' %}">Logout</a> </li>
-          <li> <a href="{% url 'productapp:register' %}">Register</a> </li>
+          <!-- <li> <a href="{% url 'productapp:register' %}">Register</a> </li> -->
+          <!--  Using Customer Model to register NEW users-->
+          <li> <a href="{% url 'customerapp:new-customer' %}">Register</a> </li>
+
         </ul>{% endblock %}
     </div>
     <div id="content">

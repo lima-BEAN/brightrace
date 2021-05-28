@@ -1,25 +1,23 @@
-{% extends 'base.html'  %}
-{% load static %}
+{% extends 'base_list.html'  %}
 
-{% block content %}
-    <h1>Product Catalog</h1>
-    <a href="{% url 'productapp:create-product' %}"><h5>Add New Product</h5></a>
-    <a href="{% url 'productapp:index' %}">  <h5>Go HOME</a></h5>
+{% block obj-list %}
+  <h1>Product Catalog</h1>
+  <a href="{% url 'productapp:create-product' %}"><h5>Add New Product</h5></a>
+  <a href="{% url 'productapp:index' %}">  <h5>Go HOME</a></h5>
 
-      {% for item in products %}
-      <a href="{% url 'productapp:catalog-detail' item.id %}"><h3>{{item.name}}</h3></a>
-        <ul>
+    {% for item in products %}
+    <a href="{% url 'productapp:catalog-detail' item.id %}"><h3>{{item.name}}</h3></a>
+      <ul>
 
-          {% if item.photo %}
-            <img src="{{item.photo.url}}" alt="My Image" height="175" width="175">
-          {% else %}
-            <li>No photo available</li>
-          {% endif %}
+        {% if item.photo %}
+          <img src="{{item.photo.url}}" alt="My Image" height="175" width="175">
+        {% else %}
+          <li>No photo available</li>
+        {% endif %}
 
-          <li>Description: {{item.description}}</li>
-          <li>Price: ${{item.price}}</li>
-          <li>Category: {{item.category}}</li>
-        </ul>
-      {% endfor %}
-
+        <li>Description: {{item.description}}</li>
+        <li>Price: ${{item.price}}</li>
+        <li>Category: {{item.category}}</li>
+      </ul>
+    {% endfor %}
 {% endblock %}

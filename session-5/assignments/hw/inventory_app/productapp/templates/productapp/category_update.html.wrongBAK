@@ -1,11 +1,12 @@
-<!-- CURRENTLY LOADING THIS HTML FOR UPDATE PRODUCT PAGE -->
+<!-- CURRENTLY LOADING THIS HTML FOR UPDATE CATEGORY PAGE -->
 {% extends 'base_update.html' %}
 
-{% block updateform %}
-  <form method="POST" action="{% url 'productapp:product-update' object.id %}" enctype="multipart/form-data">
+{% block update-form %}
+  <form method="POST" action="{% url 'productapp:category-update' object.id %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" value="Update">Update</button>
     <a href="{% url 'productapp:catalog' %}" > Cancel </a>
   </form>
+  hello
 {% endblock %}

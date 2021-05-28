@@ -9,9 +9,9 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from productapp.models import Product
+from productapp.models import Product, Category
 
-from .forms import ProductForm
+from .forms import ProductForm, CategoryForm
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -105,6 +105,59 @@ class ProductUpdateView(UpdateView):
 class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('productapp:catalog')
+
+
+
+
+class CategoryListView(ListView):
+    model = Category
+    # paginate_by = 2
+    context_object_name = 'categories'
+    template_name = 'productapp/category_list.html'
+
+class CategoryDetailView(DetailView):
+    model = Category
+    template_name = 'productapp/category_detail.html'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['category_list'] = Product.objects.all()
+        return context
+
+
+class CategoryCreateView(CreateView):
+    model = Category
+    fields = ['name', 'slug']
+    template_name = 'productapp/new_category.html'
+    success_url = reverse_lazy('productapp:catalog')
+    # login_url = 'login'# appname:viewname accounts/login
+
+    # def form_valid(self, form): #MRO
+    #     # form.instance.user = self.request.user # logged in user
+    #     return super(ProductCreate, self).form_valid(form)
+
+
+class CategoryUpdateView(UpdateView):
+    model = Category
+    fields = ['name', 'slug']
+    template_name = 'productapp/category_update.html'
+    success_url = reverse_lazy('producapp:catalog')
+    template_name_suffix = '_update_form'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context['category_list'] = Category.objects.all()
+        return context
+
+
+class CategoryDeleteView(DeleteView):
+    model = Category
+    template_name = 'productapp/category_confirm_delete.html'
+    success_url = reverse_lazy('productapp:catalog')
+
 
 class LoginView(LoginRequiredMixin, View):
     login_url = '/login/'

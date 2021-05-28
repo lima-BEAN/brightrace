@@ -1,0 +1,13 @@
+{% extends 'base_detail.html' %}
+
+{% block content %}
+    <h1>{{object.name}}</h1>
+        <ul>
+          <li>{{object.slug}}</li>
+        </ul>
+        <a href="{% url 'productapp:category-update' object.id %}"><h5>UPDATE</h5></a>
+        <a href="{% url 'productapp:category-delete' object.id %}"><h5>DELETE</h5></a>
+
+      <h3>Go back to <a href="{% url 'productapp:catalog' %}">Catalog</a></h3>
+    <a href="{% url 'productapp:index' %}">  <h3>Go HOME</a></h3>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block content %}
+<h1>Category List</h1>
+<a href="{% url 'productapp:new-category' %}"><h5>Add New Category</h5></a>
+<a href="{% url 'productapp:index' %}">  <h5>Go HOME</a></h5>
+
+  {% for item in categories %}
+    <h3><a href="{% url 'productapp:category-detail' item.id %}">{{item.name}}</a></h3>
+    <ul>
+      {% if item.slug %}
+        <li>Description: {{item.slug}}</li>
+      {% else %}
+        <li>No slug available</li>
+      {% endif %}
+
+      <!-- <li>Price: ${{item.price}}</li>
+      <li>Category: {{item.category}}</li> -->
+    </ul>
+  {% endfor %}{% endblock %}
