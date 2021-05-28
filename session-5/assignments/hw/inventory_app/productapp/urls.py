@@ -29,9 +29,16 @@ urlpatterns = [
     # catalog/category/ --> ERROR is looking for id
     path('category/', CategoryListView.as_view(), name='category'),
     path('category/new', CategoryCreateView.as_view(), name='new-category'),
+
     path('category/<pk>', CategoryDetailView.as_view(), name='category-detail'),
     path('category/<pk>/update', CategoryUpdateView.as_view(), name='category-update'),
     path('category/<pk>/delete', CategoryDeleteView.as_view(), name='category-delete'),
+
+
+    # path('category/<slug>', CategoryDetailView.as_view(), name='category-detail'),
+    # path('category/<slug>/update', CategoryUpdateView.as_view(), name='category-update'),
+    # path('category/<slug>/delete', CategoryDeleteView.as_view(), name='category-delete'),
+
 
     path('login/', auth_views.LoginView.as_view(template_name="registration/login.html"), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name="registration/logout.html"), name='logout'),

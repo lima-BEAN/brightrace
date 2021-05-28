@@ -14,6 +14,7 @@ from productapp.models import Product, Category
 from .forms import ProductForm, CategoryForm
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 from .forms import CustomUserCreationForm
@@ -76,11 +77,13 @@ class ProductDetailView(DetailView):
         context['product_list'] = Product.objects.all()
         return context
 
-class ProductCreateView(CreateView):
+# class ProductCreateView(CreateView): # updated to require login
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     fields = ['name', 'description', 'price', 'category', 'photo']
     template_name = 'productapp/create_product.html'
     success_url = reverse_lazy('productapp:catalog')
+    login_url = '/login/'
     # login_url = 'login'# appname:viewname accounts/login
 
     # def form_valid(self, form): #MRO
@@ -88,12 +91,14 @@ class ProductCreateView(CreateView):
     #     return super(ProductCreate, self).form_valid(form)
 
 
-class ProductUpdateView(UpdateView):
+# class ProductUpdateView(UpdateView): # updated to require login
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     fields = ['name', 'description', 'price', 'category', 'photo']
     template_name = 'productapp/product_update.html'
     success_url = reverse_lazy('productapp:catalog')
     template_name_suffix = '_update_form'
+    login_url = '/login/'
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -102,9 +107,13 @@ class ProductUpdateView(UpdateView):
         return context
 
 
-class ProductDeleteView(DeleteView):
+# class ProductDeleteView(DeleteView): # updated to require login
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('productapp:catalog')
+    template_name = 'productapp/product_confirm_delete.html'
+    login_url = '/login/'
+
 
 
 
@@ -122,29 +131,28 @@ class CategoryDetailView(DetailView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
         context['category_list'] = Product.objects.all()
+
         return context
 
-
-class CategoryCreateView(CreateView):
+# class CategoryCreateView(CreateView): # updated to require login
+class CategoryCreateView(LoginRequiredMixin, CreateView):
     model = Category
     fields = ['name', 'slug']
     template_name = 'productapp/new_category.html'
     success_url = reverse_lazy('productapp:catalog')
-    # login_url = 'login'# appname:viewname accounts/login
-
-    # def form_valid(self, form): #MRO
-    #     # form.instance.user = self.request.user # logged in user
-    #     return super(ProductCreate, self).form_valid(form)
+    login_url = '/login/'
 
 
-class CategoryUpdateView(UpdateView):
+
+# class CategoryUpdateView(UpdateView): # updated to require login
+class CategoryUpdateView(LoginRequiredMixin, UpdateView):
     model = Category
     fields = ['name', 'slug']
     template_name = 'productapp/category_update.html'
     success_url = reverse_lazy('producapp:catalog')
     template_name_suffix = '_update_form'
+    login_url = '/login/'
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -152,20 +160,20 @@ class CategoryUpdateView(UpdateView):
         context['category_list'] = Category.objects.all()
         return context
 
-
-class CategoryDeleteView(DeleteView):
+# class CategoryDeleteView(DeleteView):
+class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     model = Category
     template_name = 'productapp/category_confirm_delete.html'
     success_url = reverse_lazy('productapp:catalog')
-
-
-class LoginView(LoginRequiredMixin, View):
     login_url = '/login/'
-    redirect_field_name = 'catalog'
-
-class LogoutView(LoginRequiredMixin, View):
-    login_url = '/login/'
-    redirect_field_name = 'catalog'
+#
+# class LoginView(LoginRequiredMixin, View):
+#     login_url = '/login/'
+#     redirect_field_name = 'index'
+#
+# class LogoutView(LoginRequiredMixin, View):
+#     login_url = '/login/'
+#     redirect_field_name = 'index'
 
 
 

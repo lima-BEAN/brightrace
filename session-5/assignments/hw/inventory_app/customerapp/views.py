@@ -9,7 +9,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from customerapp.models import Customer
 
 from .forms import NewCustomerForm
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
 
 from django.contrib import messages
 
@@ -17,17 +20,33 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         return HttpResponse('Customer IndexView')
 
-
-class CustomerCreateView(CreateView):
-    # model = Customer
-    # fields = ['username', 'email', 'password', 'github']
-    template_name = 'customerapp/new_customer.html'
+class CustomerCreateView(LoginRequiredMixin, CreateView):
+    model = Customer
+    # fields = ['username', 'email', 'password', 'github'] # LEAKS DATA FOR PASSWORD IN DB
+    template_name = 'registration/new_customer.html'
     success_url = reverse_lazy('customerapp:customers')
-
-
-class LoginView(View):
     login_url = '/login/'
-    redirect_field_name = 'customers'
+
+
+    # @login_required --> What if non-user; how to initially register
+    def new_customer(request):
+        if request.method == 'POST':
+            f = NewCustomerForm(request.POST)
+            if f.is_valid():
+                f.save()
+                messages.success(request, 'Account created successfully')
+                return HttpResponseRedirect(reverse_lazy('customerapp:login'))
+            else:
+                return HttpResponse('Form not valid')
+        else:
+            f = NewCustomerForm()
+        return render(request, 'registration/new_customer.html', {'form': f})
+
+
+
+# class LoginView(View):
+#     login_url = '/login/'
+#     redirect_field_name = 'index'
 
 
 class CustomerListView(ListView):
@@ -68,23 +87,24 @@ class CustomerDeleteView(DeleteView):
 
 class LoginView(LoginRequiredMixin, View):
     login_url = '/login/'
-    redirect_field_name = 'customers'
+    redirect_field_name = 'index'
 
 
-# class LogoutView(LoginRequiredMixin, View):
-#     login_url = '/login/'
-#     redirect_field_name = 'catalog'
+class LogoutView(LoginRequiredMixin, View):
+    login_url = '/login/'
+    redirect_field_name = 'catalog'
 
 
-def new_customer(request):
-    if request.method == 'POST':
-        f = NewCustomerForm(request.POST)
-        if f.is_valid():
-            f.save()
-            messages.success(request, 'Account created successfully')
-            return HttpResponseRedirect(reverse_lazy('customerapp:login'))
-        else:
-            return HttpResponse('Form not valid')
-    else:
-        f = NewCustomerForm()
-    return render(request, 'registration/new_customer.html', {'form': f})
+# @login_required
+# def new_customer(request):
+#     if request.method == 'POST':
+#         f = NewCustomerForm(request.POST)
+#         if f.is_valid():
+#             f.save()
+#             messages.success(request, 'Account created successfully')
+#             return HttpResponseRedirect(reverse_lazy('customerapp:login'))
+#         else:
+#             return HttpResponse('Form not valid')
+#     else:
+#         f = NewCustomerForm()
+#     return render(request, 'registration/new_customer.html', {'form': f})
