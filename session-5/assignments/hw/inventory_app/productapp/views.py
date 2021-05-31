@@ -116,6 +116,16 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
 
 
 
+# class CategoryProductListView(ListView):
+#     model = Product
+#     # paginate_by = 2
+#     context_object_name = 'products'
+#
+#     def get_context_data(self, **kwargs):
+#         # Call the base implementation first to get a context
+#         context = super().get_context_data(**kwargs)
+#         context['category_list'] = Product.objects.all()
+
 
 
 class CategoryListView(ListView):
@@ -132,6 +142,7 @@ class CategoryDetailView(DetailView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         context['category_list'] = Product.objects.all()
+        # context['prodcuts_list'] = Product.objects.filter_by(category_id=2)
 
         return context
 
