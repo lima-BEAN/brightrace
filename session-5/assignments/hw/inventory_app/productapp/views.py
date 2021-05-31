@@ -131,8 +131,8 @@ class CategoryDetailView(DetailView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        context['category_list'] = Product.objects.all()
-
+        context['product_list'] = Product.objects.all()
+        # context['category_list'] = Category.objects.all()
         return context
 
 # class CategoryCreateView(CreateView): # updated to require login
