@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{object.username}}</h1>
+        <ul>
+          <li>{{object.email}}</li>
+          {% if object.github %}
+            <li>{{object.github}}</li>
+          {% else %}
+            <li>No Github available</li>
+          {% endif %}
+        </ul>
+
+        <a href="{% url 'customerapp:customer-update' object.id %}"> <h5>UPDATE</h5> </a>
+        <a href="{% url 'customerapp:customer-delete' object.id %}"> <h5>DELETE</h5> </a>
+
+      <h3>Go back to <a href="{% url 'customerapp:customers' %}">Customer List</a></h3>
+    <a href="{% url 'productapp:index' %}">  <h3>Go HOME</a></h3>
+{% endblock %}

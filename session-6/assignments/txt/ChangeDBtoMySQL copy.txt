@@ -1,0 +1,5 @@
+*change database of inventory  management application, which we created yesterday.
+
+*use mysql database for that application, make required changes in settings.py.
+
+*apply makemigrations and migrate for mysql and make sure you created and updated required tables. 

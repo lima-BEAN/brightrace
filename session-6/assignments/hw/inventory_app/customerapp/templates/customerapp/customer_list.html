@@ -1,0 +1,29 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block content %}
+    <h1>Customers List</h1>
+    {% if user.is_authenticated %}
+      <a href="{% url 'customerapp:new-customer' %}"><h5>Add a Referral</h5></a>
+    {% else %}
+      <a href="{% url 'customerapp:new-customer' %}"><h5>Become a Customer</h5></a>
+    {% endif %}
+    <a href="{% url 'productapp:index' %}">  <h5>Go HOME</a></h5>
+
+      {% for item in customers %}
+      {% if item.username %}
+        <a href="{% url 'customerapp:customer-detail' item.id %}"><h3>{{item.username}}</h3></a>
+      {% else %}
+        <a href="{% url 'customerapp:customer-detail' item.id %}"> <h3>No username available</h3> </a>
+      {% endif %}
+        <ul>
+          <li>{{item.email}}</li>
+          {% if item.github %}
+            <a href="{{item.github}}" target="_blank">{{item.github}}</a>
+          {% else %}
+            <li>No Github available</li>
+          {% endif %}
+        </ul>
+      {% endfor %}
+
+{% endblock %}

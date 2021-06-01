@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<form method="POST" action="{% url 'productapp:product-update' object.id %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" value="Update">Update</button>
+  <a href="{% url 'productapp:category' %}" > Cancel </a>
+</form>
+
+{% endblock %}

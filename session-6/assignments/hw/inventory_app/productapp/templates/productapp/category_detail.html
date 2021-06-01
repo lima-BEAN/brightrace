@@ -1,0 +1,36 @@
+{% extends 'base_detail.html' %}
+
+{% block content %}
+    <h1>{{object.name}}</h1>
+        <ul>
+          <li>{{object.slug}}</li>
+        </ul>
+        <a href="{% url 'productapp:category-update' object.id %}"><h5>UPDATE</h5></a>
+        <a href="{% url 'productapp:category-delete' object.id %}"><h5>DELETE</h5></a>
+
+      <h3>Go back to <a href="{% url 'productapp:catalog' %}">Catalog</a></h3>
+    <a href="{% url 'productapp:index' %}">  <h3>Go HOME</a></h3>
+
+    <h2>List of Tech Products</h2>
+    <p>
+      {% for product in product_list %}
+        {% if product.category|lower == object.slug %}
+            {% if product.photo %}
+              <img src="{{product.photo.url}}" alt="My Image" height="175" width="175">
+            {% else %}
+            <em>No photo available</em>  
+            {% endif %}
+            <br>
+          Name:
+              <a href="{% url 'productapp:catalog-detail' product.id %}">
+                {{product.name}}<br>
+              </a>
+          Description: {{product.description}}<br>
+          Category: {{product.category|upper}}<br>
+          <br><br>
+        {% endif %}
+      {% endfor %}
+    </p>
+
+
+{% endblock %}

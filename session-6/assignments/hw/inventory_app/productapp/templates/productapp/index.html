@@ -1,0 +1,20 @@
+{% extends 'base.html'  %}
+
+{%  block content %}
+    <h1>Welcome Home...</h1>
+    <a href="{% url 'productapp:catalog' %}"><h5>Product Catalog</h5></a>
+    <a href="{% url 'productapp:create-product' %}">Add Product</a>
+    <br><br>
+    <a href="{% url 'productapp:category' %}"><h5>Category List</h5></a>
+    <a href="{% url 'productapp:new-category' %}">Add Category</a>
+    <br><br>
+    {% if user.is_authenticated %}
+      <a href="{% url 'customerapp:customers' %}"><h5>Customer List</h5></a>
+      <a href="{% url 'customerapp:new-customer' %}">Add a Referral</a>
+    {% else %}
+      <br>
+      <a href="{% url 'customerapp:new-customer' %}">Become a Customer</a>
+    {% endif %}
+
+
+  {% endblock %}

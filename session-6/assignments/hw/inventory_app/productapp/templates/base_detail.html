@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{object.name}}</h1>
+        <ul>
+          <li>{{object.description}}</li>
+          <li>{{object.price}}</li>
+          <li>{{object.category}}</li>
+          <li>{{object.photo}}</li>
+        </ul>
+
+        {% block object-id %}
+        {% endblock %}
+      <h3>Go back to <a href="{% url 'productapp:catalog' %}">Catalog</a></h3>
+    <a href="{% url 'productapp:index' %}">  <h3>Go HOME</a></h3>
+
+{% endblock %}

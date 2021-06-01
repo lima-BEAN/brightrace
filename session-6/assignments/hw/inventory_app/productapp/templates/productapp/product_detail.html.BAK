@@ -1,0 +1,6 @@
+{% extends 'base_detail.html' %}
+
+{% block object-id %}
+  <a href="{% url 'productapp:product-update' object.id %}"><h5>UPDATE</h5></a>
+  <a href="{% url 'productapp:product-delete' object.id %}"><h5>DELETE</h5></a>
+{% endblock %}
