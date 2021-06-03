@@ -1,9 +1,14 @@
-1) By using soap, create a python server to accept a number and display fibonacci series till that number as output.
+1) By using soap, create a python server to accept a number and display fibonacci
+series till that number as output.
 
 ex: 10
-0 1 1 2 3 5 8 
+0 1 1 2 3 5 8
 
 
 2)Create a client to consume that service.
 
 Use any python module to create and consume the service.
+
+
+Notes:
+python soap client https://docs.python-zeep.org/en/master/index.html
