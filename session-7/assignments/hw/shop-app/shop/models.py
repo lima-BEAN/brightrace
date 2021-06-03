@@ -40,3 +40,9 @@ class Product(models.Model):
         return self.name
 
 
+class Coupon(models.Model):
+    name = models.CharField(max_length=200)
+    discount = models.FloatField()
+
+    def __str__(self):
+        return self.name

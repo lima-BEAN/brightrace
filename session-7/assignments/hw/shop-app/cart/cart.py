@@ -33,6 +33,23 @@ class Cart(object):
         self.session[SESSION_ID_CART] = self.session_cart_obj
         self.session.modified = True
 
+    # GETTING COUPON CODE
+    # def add_coupon(self, coupon):
+    #     coupon_id = str(coupon_id)
+    #     if coupon_id not in self.session_cart_obj:
+    #         self.session_cart_obj[]
+
+
+    def addcoupon(self, coupon):
+        coupon_id = str(coupon.id)
+        if coupon_id not in self.session_cart_obj:
+            self.session_cart_obj[str(coupon_id)] = dict(quantity=0, coupon=str(coupon.discount))
+        self.session_cart_obj[str(coupon_id)]['quantity'] += 1
+        self.session[SESSION_ID_CART] = self.session_cart_obj
+        self.session.modified = True
+
+
+
     def __iter__(self):
         product_ids = self.session_cart_obj.keys()
         # get the product objects and add them to the cart
@@ -49,7 +66,10 @@ class Cart(object):
         self.session.modified = True
 
     def get_total_price(self):
+        for item in self.session_cart_obj.values():
+            print(item)
         return sum(Decimal(item['price']) * item['quantity'] for item in self.session_cart_obj.values())
+       # return sum(Decimal(item['price']) * item['quantity'] * item['coupon'] for item in self.session_cart_obj.values())
 
     def __len__(self):
         return sum(item['quantity'] for item in self.session_cart_obj.values())
@@ -64,5 +84,3 @@ class Cart(object):
 
     def __str__(self):
         return str(self.session_cart_obj)
-
-
