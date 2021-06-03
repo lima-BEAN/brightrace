@@ -1,0 +1,16 @@
+{% extends 'base_shop.html' %}
+
+{% block content%}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <br>
+    <table class="">
+        <thead><th colspan="2">Address Details</th></thead><br>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Place Order">
+    <a href="{% url 'cart:cart_detail' %}" > Cancel </a>
+</form>
+
+{% endblock %}

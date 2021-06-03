@@ -1,0 +1,61 @@
+{% extends '../base_restaurant.html' %}
+
+{% block title %}Restaurant Detail{% endblock title %}
+
+{% block content %}
+    {% if user == object.user %}
+        <h3><a href="{% url 'restaurant:restaurant_update' object.id %}">Update Restaurant Information</a></h3>
+    {% endif %}
+    <h2>{{ object.name }}</h2>
+    <table>
+        <tr>
+            <td><b> Restaurant Address </b></td>
+            <td>&nbsp;&nbsp;</td>
+            <td>{{ object.street }}, {{ object.number }}, {{ object.city }}
+            <br>{{ object.stateOrProvince }}, {{ object.zipCode }} - {{ object.country }}</td>
+        </tr>
+        <tr>
+            <td><b> Restaurant URL </b></td>
+            <td>&nbsp;&nbsp;</td>
+            <td>{{ object.url }}</td>
+        </tr>
+    </table>
+    <br>
+    {% if object.dishes.all  %}
+        <h3> Dishes offered by this restaurant: </h3>
+        <ul>
+        {% for dish in object.dishes.all %}
+            <li><a href="{% url 'restaurant:dish_detail' object.id dish.id %}">{{ dish.name }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <label>There are no dishes added to this restaurant yet.</label><br>
+    {% endif %}
+    <a href="{% url 'restaurant:dish_create' object.id %}"> Add New Dish </a>
+    <br><br>
+    {% if object.restaurantreview_set.all %}
+        <h3>Reviews by our customers: </h3>
+        <ul>
+        {% for review in object.restaurantreview_set.all %}
+            <li>
+                {{ review.rating }} Stars<br>
+                {{ review.comment }}<br>
+                Created by {{ review.user }} on {{ review.date }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <h3> Add Review </h3>
+    <form action="{% url 'restaurant:review_create' object.id %}" method="post">
+        {% csrf_token %}
+        Message: <textarea name="comment" id="comment" rows="4"></textarea>
+        <p>Rating:
+        <select name="rating" id="rating">
+            {% for ratevalue, rate in RATING_CHOICES %}
+            <option value={{ratevalue}}>{{ rate }} star{{ rate.0|pluralize }}</option>
+            {% endfor %}
+        </select></p>
+        <input type="submit" value="Review" />
+    </form>
+
+{% endblock content %}

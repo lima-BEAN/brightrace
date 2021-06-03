@@ -1,0 +1,25 @@
+{% extends '../base_restaurant.html' %}
+
+{% block title %}Restaurant Dish Detail{% endblock title %}
+
+{% block content %}
+    {% if user %}
+        <h3><a href="{% url 'restaurant:dish_update' object.id dish.id %}">Update Dish Information</a></h3>
+    {% endif %}
+    <h2>{{ dish.name }}</h2>
+    <table>
+        {% if object.image %}
+        <tr>
+            <td colspan="2"><image src="{{ dish.image.url }}" style="width:128px;height:128px;"></image></td>
+        </tr>
+        {% endif %}
+        <tr>
+            <td><b> Description </b></td>
+            <td>{{ dish.description }}</td>
+        </tr>
+        <tr>
+            <td><b> Price </b></td>
+            <td>$ {{ object.price }}</td>
+        </tr>
+    </table>
+{% endblock content %}

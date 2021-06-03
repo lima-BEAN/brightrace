@@ -1,0 +1,17 @@
+{% extends '../base_restaurant.html' %}
+
+{% block title %}Restaurant List{% endblock title %}
+
+{% block content %}
+    {% if user %}<a href="{% url 'restaurant:restaurant_create' %}">Create New Restaurant</a>{% endif %}
+    {% if latest_restaurant_list %}
+        <table>
+        {% for restaurant in latest_restaurant_list %}
+            <tr><td>&nbsp;&nbsp;&nbsp;</td><td><a href="{% url 'restaurant:restaurant_detail' restaurant.id %}">{{ restaurant.name }}</a></td>
+<!--                <td><a href="{% url 'restaurant:restaurant_update' restaurant.id %}" > Edit </a></td></tr>-->
+        {% endfor %}
+        </table>
+    {% else %}
+        <p>No restaurants are available.</p>
+    {% endif %}
+{% endblock content %}

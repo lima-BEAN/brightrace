@@ -1,0 +1,10 @@
+{% extends 'base_shop.html' %}
+
+{% block content%}
+
+    <br>
+    <table class="">
+        <thead><th colspan="2">Your order has been placed Successfully!</th></thead><br>
+    </table><br><br>
+<a href="{% url 'order:order_pdf' %}">View Order PDF and send an Email!</a><br>
+{% endblock %}
