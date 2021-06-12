@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fda98ef6-8f6d-4cc5-b712-4de1fcd0f2b3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1mecpVqHRtHcblasNtkNGp2cSBY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Day 11 - DjangoSoapAPI/Examples" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\PythonPPTs\Day 10 - DjangoSessionGenericViews\Example\cart\templates" />
+      <recent name="E:\PythonPPTs\Day 10 - DjangoSessionGenericViews\Example\shop\templates\shop" />
+      <recent name="E:\PythonPPTs\Day 9 - DjangoDBInteraction\Example" />
+      <recent name="E:\PythonPPTs\Day 9 - DjangoDBInteraction\Example\restaurant\templates" />
+      <recent name="E:\PythonPPTs\Day 9 - DjangoDBInteraction\Example\restaurant\templates\restaurant" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\PythonPPTs\Day 10 - DjangoSessionGenericViews\Example\cart\templates\cart" />
+      <recent name="E:\PythonPPTs\Day 10 - DjangoSessionGenericViews\Example\shop\static\images" />
+      <recent name="E:\PythonPPTs\Day 10 - DjangoSessionGenericViews\Example\shop\static\shop" />
+      <recent name="E:\PythonPPTs\Day 9 - DjangoDBInteraction\Example\restaurant\static\restaurant" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fda98ef6-8f6d-4cc5-b712-4de1fcd0f2b3" name="Default Changelist" comment="" />
+      <created>1609857679441</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609857679441</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2017" y="169" key="FileChooserDialogImpl" timestamp="1614949188808">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2017" y="169" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1614949188808" />
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1613142116226" />
+    <state x="184" y="8" key="SettingsEditor" timestamp="1612981737422">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1612981737422" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1609947372507">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1609947372507" />
+  </component>
+</project>
