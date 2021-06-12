@@ -1,0 +1,4 @@
+launch Linux EC2 server in AWS. connect the server either by using putty or shell. make sure you connected
+server.
+
+launch Windows Server in AWS. follow the steps in AWS documentation to connect Windows Server..
