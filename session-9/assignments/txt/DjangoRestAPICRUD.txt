@@ -1,0 +1,11 @@
+For the Restful services make the candidates do the following:
+
+*1. Create Employeee application and model with properties ID, First_Name, Last_Name, Department, Salary
+2. Create service with methods:
+*GetEmployees() -returns list of employees
+GetEmployee(int ID)
+Insert(Employee)
+Update(Employee,ID)
+Delete(ID)
+
+Use django rest framework to create the above api, test with django interface and postman.

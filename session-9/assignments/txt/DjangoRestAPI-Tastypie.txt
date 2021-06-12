@@ -1,0 +1,11 @@
+For the Restful services make the candidates do the following:
+
+1. Create Talk application and model with properties ID, Name, Speaker, Venue, Duration
+2. Create service with methods:
+GetTalks() -returns list of talks
+GetTalk(int ID)
+Insert(Talk)
+Update(Talk,ID)
+Delete(ID)
+
+Use django Tastypie to create the above api, test with django interface and postman.
